@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      // alert("load page")
+      $.get("http://api.openweathermap.org/data/2.5/weather?q=chicago,il&appid=190568a61fdc6cffdf0c88f249e6dfda",function(returned_data){
+        console.log(returned_data);
+        console.log(returned_data.main);
+        var temp = Math.floor((returned_data.main.temp - 273) * 1.8 +32);
+        console.log(temp);
+        $("body").append("<h1>city: "+returned_data.name+"</h1>")
+        $("body").append("<h2> Condition: "+returned_data.weather[0].main+"</h2>")
+        $("body").append("<h2> Description: "+returned_data.weather[0].description+"</h2>")
+        $("body").append("<h2>Temp: "+temp+"</h2")
+        $("body").append("<h2> Humidity: "+returned_data.main.humidity+"</h2>")
+      })
+      $("button").click(function(){
+          var city_search= $("#city").val();
+          $.get("http://api.openweathermap.org/data/2.5/weather?q="+city_search+"&appid=190568a61fdc6cffdf0c88f249e6dfda",function(returned_data){
+            console.log(returned_data);
+            console.log(returned_data.main);
+            var temp = Math.floor((returned_data.main.temp - 273) * 1.8 +32);
+            console.log(temp);
+            $("body").append("<h1>city: "+returned_data.name+"</h1>")
+            $("body").append("<h2> Condition: "+returned_data.weather[0].main+"</h2>")
+            $("body").append("<h2> Description: "+returned_data.weather[0].description+"</h2>")
+            $("body").append("<h2>Temp: "+temp+"</h2")
+            $("body").append("<h2> Humidity: "+returned_data.main.humidity+"</h2>")
+          })
+      })
+    })
+
+    </script>
+
+  </head>
+  <body>
+    <h1>hi everyone!</h1>
+    <div id="location">
+    </div>
+    City Search: <input type="text" id="city"><button>search</button>
+    <div id="search">
+    </div>
+  </body>
+</html>

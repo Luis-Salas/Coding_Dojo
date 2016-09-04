@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Date Validations</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/vader/jquery-ui.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+      $("#depart").datepicker();
+    })
+    $(function(){
+      $("#return").datepicker();
+    })
+    $(document).ready(function(){
+      $("button").click(function(){
+        if($("#name").val() == ""){
+          alert("please input a name");
+        }
+        else{alert("Thanks " + $("#name").val() + " Your cruise leaves on " +
+						   $("#depart").val() + " and returns on " + $("#return").val());
+             }
+    })
+    })
+
+    </script>
+  </head>
+  <body>
+    <h1>Book a Flight to (insert something clever here)</h1>
+    <div id="container">
+      <p>Departure</p>
+      <input type="text" id="depart"></input>
+      <p>Return</p>
+      <input type="text" id="return"></input>
+      <p>Name</p>
+      <input type="text" id="name"></input>
+      <button>submit</button>
+      <div id="message"></div>
+    </div>
+  </body>
+</html>

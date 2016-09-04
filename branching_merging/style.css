@@ -1,0 +1,20 @@
+img{
+  display:inline-block;
+  height:300px;
+  width:290px;
+}
+h1{
+  margin-left:500px;
+  color:white;
+}
+#container{
+  background-color:black;
+  height:600px;
+}
+p{
+  color:white;
+  margin-left:20px;
+}
+#shina{
+  margin-left:40px;
+}

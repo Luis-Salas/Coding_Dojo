@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+      $("#house1").one("click",function(){
+        $.get("http://www.anapioficeandfire.com/api/characters/894",function(returned_data){
+          $("#house1").append("<h1>"+returned_data.name+"</h1>")
+          $("#house1").append("<p>Gender:"+returned_data.gender+"</p>")
+          $("#house1").append("<p>Born:"+returned_data.born+"</p>")
+          $("#house1").append("<p>Died:"+returned_data.died+"</p>")
+          $("#house1").append("<p>Titles:"+returned_data.titles+"</p>")
+          $("#house1").append("<p>Aliases:"+returned_data.aliases+"</p>")
+          $(".arryn").fadeOut("slow")
+          $("returned_data").fadeIn("slow")
+
+          });
+        })
+        $("#house2").one("click",function(){
+          $(".algood").fadeOut("slow")
+          $.get("http://anapioficeandfire.com/api/characters/238",function(returned_data){
+            console.log(returned_data);
+            $("#house2").append("<h1>"+returned_data.name+"</h1>")
+            $("#house2").append("<p>Gender:"+returned_data.gender+"</p>")
+            $("#house2").append("<p>Born:"+returned_data.born+"</p>")
+            $("#house2").append("<p>Died:"+returned_data.died+"</p>")
+            $("#house2").append("<p>Titles:"+returned_data.titles+"</p>")
+            $("#house2").append("<p>Aliases:"+returned_data.aliases+"</p>")
+            $("returned_data").fadeIn("slow")
+          });
+        })
+        $("#house3").one("click",function(){
+          $(".allyrion").fadeOut("slow")
+          $.get("http://anapioficeandfire.com/api/characters/298",function(returned_data){
+            console.log(returned_data);
+            $("#house3").append("<h1>"+returned_data.name+"</h1>")
+            $("#house3").append("<p>Gender:"+returned_data.gender+"</p>")
+            $("#house3").append("<p>Born:"+returned_data.born+"</p>")
+            $("#house3").append("<p>Died:"+returned_data.died+"</p>")
+            $("#house3").append("<p>Titles:"+returned_data.titles+"</p>")
+            $("#house3").append("<p>Aliases:"+returned_data.aliases+"</p>")
+            $("returned_data").fadeIn("slow")
+          });
+        })
+        $("#house4").one("click",function(){
+          $(".ashford").fadeOut("slow")
+          $.get("http://anapioficeandfire.com/api/characters/691",function(returned_data){
+            console.log(returned_data);
+              $("#new_data").append("<h1>"+returned_data.name+"</h1>")
+              $("#new_data").append("<p>Gender:"+returned_data.gender+"</p>")
+              $("#new_data").append("<p>Born:"+returned_data.born+"</p>")
+              $("#new_data").append("<p>Died:"+returned_data.died+"</p>")
+              $("#new_data").append("<p>Titles:"+returned_data.titles+"</p>")
+              $("#new_data").append("<p>Aliases:"+returned_data.aliases+"</p>")
+              $("#new_data").fadeIn(5000)
+          });
+        })
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="head">HOUSES</h1>
+      <div id="house1">
+        <img src="arryn.png"/>
+          <h1 class="arryn">House Arryn Of The Eyrie</h1>
+          <p class="arryn"><span>Region</span>: The Vale</p>
+          <p class="arryn"><span>Coat Of Arms</span>:A sky-blue falcon soaring against
+             a white moon, on a sky-blue field(Bleu celeste,
+            upon a plate a falcon volant of the field)
+          </p>
+          <p class="arryn"><span>Tittle</span>:King of Mountain and Vale (formerly),
+            Lord of the Eyrie,Defender of the Vale,Warden of the East
+          </p>
+      </div>
+      <div id="house2">
+          <img src="algood.png"/>
+          <h1 class="algood">House Algood</h1>
+          <p class="algood"><span>Region</span>:The westerlands</p>
+          <p class="algood"><span>Coat Of Arms</span>A golden wreath, on a blue field with a gold border(Azure, a garland of laurel within a bordure or</p>
+          <p class="algood"><span>Tittle</span>:None
+          </p>
+      </div>
+      <div id="house3">
+          <img src="allyrion.png">
+          <h1 class="allyrion">House Allyrion of Godsgrace</h1>
+          <p class="allyrion"><span>Region</span>: Dorne</p>
+          <p class="allyrion"><span>Coat Of Arms</span>Gyronny Gules and Sable, a hand couped Or"</p>
+          <p class="allyrion"><span>Tittle</span>:None</p>
+      </div>
+      <div id="house4">
+          <img src="ashford.png"/>
+          <h1 class="ashford">House Ashford of Ashford</h1>
+          <p class="ashford"><span>Region</span>:The Reach</p>
+          <p class="ashford"><span>Coat Of Arms</span>Tenny, a sun in splendour beneath a chevron inverted argent</p>
+          <p class="ashford"><span>Tittle</span>:Lord of Ashford</p>
+          <div id="new_data" style="display:none">
+
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+img{
+  height:355px;
+  width:277px;
+  padding-left:100px;
+}
+div{
+  height:900px;
+  width:500px;
+  display: inline-block;
+  vertical-align:top;
+  font-size:26px;
+  border: 1px solid black;
+  color:white;
+}
+span{
+  font-weight:bold;
+}
+#container{
+  background-image:url(gotpic.jpg);
+  height:1443px;
+  width:2562px;
+  background-repeat:no-repeat;
+  margin:auto;
+  margin-left:560px;
+}
+#house1{
+  margin-left:276px;
+}
+#house1,#house2,#house3,#house4{
+  opacity:.5;
+  background-color:black;
+}
+p{
+  margin:8px;
+}
+#head{
+  margin-left:1129px;
+  font-size:90px;
+}
+#container:first-child{
+  color:black;
+  margin-left:30px;
+}

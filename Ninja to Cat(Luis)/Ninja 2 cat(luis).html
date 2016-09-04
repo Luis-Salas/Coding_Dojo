@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery Basic Assignment 3</title>
+		<meta name="description" content="Week 2 Coding Dojo - Basic Assignment 3"/>
+		<link rel="stylesheet" href="jqbasic3_css.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#container img').click(function () {
+					var temp = $(this).attr('src');
+					$(this).attr('src', $(this).attr('data-alt-src'));
+					$(this).attr('data-alt-src', temp);
+				});
+			});
+		</script>
+ 	</head>
+
+	<body>
+		<div id="container">
+      <img class="cat" src="cat0.png" data-alt-src="ninja0.png"/>
+      <img class="cat" src="cat1.png" data-alt-src="ninja1.png"/>
+      <img class="cat" src="cat2.png" data-alt-src="ninja2.png"/>
+      <img class="cat" src="cat3.png" data-alt-src="ninja3.png"/>
+      <img class="cat" src="cat4.png" data-alt-src="ninja4.png"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="styles.css">
+<head>
+  <title>Jquery practice</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#alert").click(function(){
+        alert("hello");
+        })
+    $("#focus").click(function(){
+      $("input").focus();
+    })
+    $("#addcolor").click(function(){
+      $("h2").addClass("teal");
+    })
+    $("#text").click(function(){
+      alert($(this).html());
+    })
+    $("#apnd").click(function(){
+      $("p").append( $("#text").text());
+    })
+    $("#color").change(function(){
+      alert($(this).val());
+    })
+    $("#hide").click(function(){
+      $("#hidden").hide("slow");
+    })
+    $("#show").click(function(){
+      $("#hidden").show("slow");
+    })
+    $("#fadein").click(function(){
+      $("#hidden").fadeIn("slow");
+    })
+    $("#fadeout").click(function(){
+      $("#hidden").fadeOut("slow");
+    })
+    $("#slide").click(function(){
+      $("#dog:").slideToggle("slow");
+    })
+  });
+  </script>
+</head>
+<body>
+  <h1>.click</h1>
+  <button id="alert">Click me! you will get an alert</button>
+  <h1>.focus</h1>
+  <button id="focus">Focus!</button>
+  <input type="text"></input>
+  <h1>add.class</h1>
+  <button id="addcolor">Please press</button>
+  <h2>Im Teal c:</h2>
+  <h1>.class</h1>
+  <p id="text">"This will be in your alert"</p>
+  <h1>.append</h1>
+  <button id="apnd">Append!!</button>
+  <h1>.val</h1>
+  <button id="hide">hide</button>
+  <button id="show">show</button>
+  <button id="fadein">fadein!</button>
+  <button id="fadeout">fadeout!</button>
+  <p id="hidden">Hide me!</p>
+  <select id="color" name="gender">
+    <option>blue</option>
+    <option>red</option>
+    <option>yellow</option>
+  </select>
+  <ul>
+      <li>hi</li>
+      <li>hello</li>
+  </ul>
+  <button id="slide">slideToggle!</button>
+  <img id="dog" src="doggo.png">
+
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+#container{
+  height:1210px;
+  width:1101px;
+  background-color:#062134;
+  position:absolute;
+  margin-left:700px;
+}
+#back{
+  height:1063px;
+  width:1050px;
+  margin:20px;
+  background-color:white;
+}
+#top{
+  height:452px;
+  width:1050px;
+  margin:auto;
+  background-color:white;
+}
+.nav{
+  display:inline-block;
+  color:white;
+  padding-left:10px;
+  vertical-align:top;
+  font-size:25px;
+  margin-top:20px;
+}
+  .nav:first-child{
+  margin-left:150px;
+}
+#james{
+  display:inline-block;
+  color:white;
+  margin-left:20px;
+  font-size:44px;
+}
+#top img{
+  height:430px;
+  width:1000px;
+  padding-left:20px;
+  padding-top:10px
+}
+.midbox{
+  height:240px;
+  width:314px;
+  background-color:#1468A8;
+  display:inline-block;
+  margin-left:20px;
+  vertical-align:top;
+}
+.midbox img{
+  height:45px;
+  width:45px;
+  color:black;
+  margin-left:6px;
+  margin-top:6px;
+  display:inline-block;
+}
+.midtxt{
+  color:white;
+  margin-left:4px;
+  margin-right:4px;
+
+}
+.midhdr{
+  display:inline-block;
+  color:white;
+  font-size:25px;
+}
+.midbox button{
+  width:140px;
+  height:40px;
+  color:white;
+  background-color:#198ED8;
+  margin-left:27px;
+}
+#midlast{
+  display:inline-block;
+}
+#midlast1{
+  display:inline-block;
+  margin-left:262px;
+}
+
+#building{
+  width:314px;
+  height:189px;
+  margin-left:19px;
+  display:inline:block;
+  vertical-align:top;
+}
+#bottomtxt{
+  width:314px;
+  height:189px;
+  background-color:white;
+  display:inline-block;
+  margin-left:20px;
+  font-size:18px;
+  vertical-align:top;
+}
+#testimonial{
+  width:314px;
+  height:140px;
+  display:inline-block;
+  margin-left:20px;
+  background-color:#DAEDFF;
+  padding
+}
+#testimonial p{
+  margin:30px;
+}
+span{
+  color:#1B99E8
+}
+#back a{
+  margin-left:400px;
+  display:inline-block;
+  vertical-align:top;
+  text-decoration:none;
+  font-size:18px;
+}
+.jones{
+  display:inline-block;
+  margin-left:253px;
+  vertical-align:top;
+  margin-bottom:20px;
+}
+#footer{
+  width:1050px;
+  height:60px;
+  background-color:#DAEDFF;
+  vertical-align:bottom;
+  border-top: solid black 1px;
+}
+.bttmnav{
+  display:inline-block;
+  font-size:20px;
+  margin-left:27px;
+}
+.bttmnav:first-child{
+  margin-left:250px;
+
+}

@@ -1,0 +1,15 @@
+.tbl{
+  margin-left: 10px;
+}
+table{
+  border:1px solid black
+}
+#container{
+  background-color:lightgrey;
+  height:230px;
+  width:700px;
+}
+h1{margin-left:260px;}
+#main{
+  margin-left: 160px
+}

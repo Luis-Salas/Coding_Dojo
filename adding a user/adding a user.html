@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("button").one("click",function(){
+        $("#tbl1").append($("#first").val())
+        $("#tbl2").append($("#last").val())
+        $("#tbl3").append($("#email").val())
+        $("#tbl4").append($("#contact").val())
+      });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+    <table id="main">
+      <tr>
+        <td id="tbl1"><strong>First Name:</strong></td>
+        <td id="tbl2"><strong>Last Name:</strong></td>
+        <td id="tbl3"><strong>Email Address:</strong></td>
+        <td id="tbl4"><strong>Contact#:</strong></td>
+      </tr>
+      </table>
+      <h1>Add User</h1>
+      <input id="first" type="text"></input>
+      <input id="last" type="text"></input>
+      <input id="email" type="text"></input>
+      <input id="contact" type="text"></input>
+      <button>add user</button>
+    <div>
+  </body>
+</html>

@@ -27,12 +27,11 @@
 		position:absolute;
 	}
 	.enemy2{
-		background: url('Galaga_ship.png');
-		background-position: -30px -10px;
+		background: url('Ga.png');
 		width:28px;
 		height:28px;
 		position:absolute;
-		background-size: cover ;
+		background-size:cover;
 	}
 	.bullet{
 		background: url('1942.gif');
@@ -51,6 +50,13 @@
 		font-size:30px;
 		font-family: Arial;
 	}
+	#explode{
+		background: url('1942.gif');
+		background-position:-129px, -406px;
+		width:18px;
+		height:18px;
+		position: absolute;
+		}
 </style>
 </head>
 <body>
@@ -59,6 +65,7 @@
 		<div id='enemies'></div>
 		<div id='enemy2'></div>
 		<div id='bullets'></div>
+		<div id="explode"></div>
 		</div>
 	</div>
 
@@ -148,13 +155,13 @@
 		detectCollision();
 		displayScore();
 		displayEnemies1();
+		moveEnemies1();
 	}
 	function detectCollision(){
 		for(var i=0; i<bullets.length; i++){
 			for(var j=0; j<enemies.length; j++){
 					if(Math.abs(bullets[i].x - enemies[j].x) < 10 && Math.abs(
 						bullets[i].y - enemies[j].y) < 10){
-						console.log('bullet', i, 'and enemy',j, 'collided');
 						score += 10;
 					}
 			}

@@ -1,0 +1,192 @@
+<html>
+<head>
+	<title>1942 Game</title>
+
+<style type="text/css">
+	body{
+		background-color:black;
+	}
+	#container{
+		background: url('static/star-background_2.gif');
+		width:1000px;
+		background-size: cover;
+		height:550px;
+	}
+	#hero{
+		background: url('static/1942.gif');
+		background-position: -85px -180px;
+		width:28px;
+		height:28px;
+		position:absolute;
+	}
+	.enemy1{
+		background: url('static/1942.gif');
+		background-position: -30px -10px;
+		width:28px;
+		height:28px;
+		position:absolute;
+	}
+	.enemy2{
+		background: url('static/Ga.png');
+		width:28px;
+		height:28px;
+		position:absolute;
+		background-size:cover;
+	}
+	.bullet{
+		background: url('static/1942.gif');
+		background-position: -185px -400px;
+		width:18px;
+		height:18px;
+		position:absolute;
+	}
+	#score{
+		position:absolute;
+		border:10px solid red;
+		top:20px;
+		left:800px;
+		background-color:white;
+		padding:10px;
+		font-size:30px;
+		font-family: Arial;
+	}
+	#explode{
+		background: url('1942.gif');
+		background-position:-129px, -406px;
+		width:18px;
+		height:18px;
+		position: absolute;
+		}
+</style>
+</head>
+<body>
+	<div id='container'>
+		<div id='hero' style='top:300px; left:300px;'></div>
+		<div id='enemies'></div>
+		<div id='enemy2'></div>
+		<div id='bullets'></div>
+		<div id="explode"></div>
+		</div>
+	</div>
+
+	<div id='score'>0</div>
+
+
+<script>
+	var score = 0;
+	var hero = {
+		x: 400,
+		y: 400
+	}
+	var enemies = [{x: 50, y:50}, {x: 250, y:50}, {x: 650, y:70}, {x: 400, y:90}, {x: 350, y:50},
+	{x: 100, y:50}, {x: 450, y:50},];
+
+	var enemies1= [{x: 100, y:70}];
+
+	var bullets = [];
+
+	function displayHero(){
+		document.getElementById('hero').style['top']= hero.y + "px";
+		document.getElementById('hero').style['left']= hero.x + "px";
+	}
+	function displayEnemies(){
+		var output = '';
+		for(var i=0; i<enemies.length; i++){
+			output += "<div class='enemy1' style='top:"+enemies[i].y+"px; left:"+enemies[i].x+"px;'></div>";
+		}
+		document.getElementById('enemies').innerHTML = output;
+		// console.log(output);
+	}
+	function displayEnemies1(){
+		var output = '';
+		for(var i=0; i<enemies1.length; i++){
+			output += "<div class='enemy2' style='top:"+enemies1[i].y+"px; left:"+enemies1[i].x+"px;'></div>";
+		}
+		document.getElementById('enemy2').innerHTML = output;
+		// console.log(output);
+	}
+	function moveEnemies(){
+		for(var i=0; i<enemies.length; i++){
+			enemies[i].y += 5;
+			if(enemies[i].y > 540){
+				enemies[i].y = 0;
+				enemies[i].x = Math.random()*500;
+			}
+		}
+	}
+	function moveEnemies1(){
+		for(var i=0; i<enemies1.length; i++){
+			enemies1[i].y += 5;
+			if(enemies1[i].y > 540){
+				enemies1[i].y = 0;
+				enemies1[i].x = Math.random()*500;
+			}
+		}
+	}
+	function moveBullets(){
+		for(var i=0; i<bullets.length; i++){
+			bullets[i].y -= 5;
+			if(bullets[i].y<0){
+					bullets[i] = bullets[bullets.length -1]
+					bullets.pop();
+					console.log(bullets);
+				}
+			}
+	}
+	function displayBullets(){
+		var output = '';
+		for(var i=0; i<bullets.length; i++){
+			output += "<div class='bullet' style='top:"+ bullets[i].y+"px; left:"+bullets[i].x+"px;'></div>";
+		}
+		document.getElementById('bullets').innerHTML = output;
+	}
+	function displayScore(){
+		document.getElementById('score').innerHTML = score;
+
+	}
+
+
+	function gameLoop(){
+		displayHero();
+		moveEnemies();
+		displayEnemies();
+		moveBullets();
+		displayBullets();
+		detectCollision();
+		displayScore();
+		displayEnemies1();
+		moveEnemies1();
+	}
+	function detectCollision(){
+		for(var i=0; i<bullets.length; i++){
+			for(var j=0; j<enemies.length; j++){
+					if(Math.abs(bullets[i].x - enemies[j].x) < 10 && Math.abs(
+						bullets[i].y - enemies[j].y) < 10){
+						score += 10;
+					}
+			}
+		}
+	}
+	setInterval(gameLoop, 66)
+
+	document.onkeydown = function(a){
+		if(a.keyCode == 37){
+			hero.x -= 10;
+		}
+		else if (a.keyCode == 39){
+			hero.x += 10;
+		}
+		else if(a.keyCode == 32){
+			bullets.push({x: hero.x+8, y:hero.y-15});
+			displayBullets();
+		}
+	}
+	displayHero();
+	displayEnemies();
+	displayEnemies1();
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Great Number Game</title>
+  </head>
+  <body>
+    <h1>Number Game</h1>
+    <form action="/user" method="post">
+      <p>I am thinking of a number from 1 - 100</p>
+      <p>Take a guess!<input type ="number" name="guess"></p>
+      {{session['number']}}
+      <br>{{result}}</br>
+    </form>
+    <a href ="/"><button name='bt' value="reset">try again!</button></a>
+  </body>
+</html>

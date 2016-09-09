@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ninja Gold</title>
+  <link rel="stylesheet" href="/../static/style.css">
+</head>
+<body>
+  <div id ="container">
+    <h1>Your gold is {{session['gold']}}</h1>
+    <div class ='box'>
+      <h1>Farm</h1>
+      <p>(earns 10-20 gold)</p>
+      <form action="/process_money" method="post">
+        <input type="hidden" name="building" value="farm" />
+        <input type="submit" value="Find Gold!"/>
+      </form>
+    </div>
+    <div class ='box'>
+      <h1>Cave</h1>
+      <p>(earns 5-10 gold)</p>
+      <form action="/process_money" method="post">
+        <input type="hidden" name="building" value="cave" />
+        <input type="submit" value="Find Gold!"/>
+      </form>
+    </div>
+    <div class ='box'>
+      <h1>House</h1>
+      <p>(earns 2-5 gold)</p>
+      <form action="/process_money" method="post">
+        <input type="hidden" name="building" value="house" />
+        <input type="submit" value="Find Gold!"/>
+      </form>
+    </div>
+    <div class ='box'>
+      <h1>Casino</h1>
+      <p>(earns/takes 0-50 gold)</p>
+      <form action="/process_money" method="post">
+        <input type="hidden" name="building" value="cave" />
+        <input type="submit" value="Find Gold!"/>
+      </form>
+    </div>
+    <div id='activities'>
+      <p>activities</p>
+      {{session['response']}}
+      {% for x in transaction: %}
+        <p>{{x}}</p>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

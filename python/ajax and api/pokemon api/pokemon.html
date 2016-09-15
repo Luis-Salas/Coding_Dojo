@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTTP Request Response</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  </head>
+  <body>
+		<script>
+			$(document).ready(function(){
+				var img = ""
+				for(var i = 1;i<152;i++){
+					img += "<img src=http://pokeapi.co/media/img/" + i + ".png>"
+				}
+				console.log(img)
+				$("#container").append(img)
+			})
+		</script>
+		<div id ="container">
+
+		</div>
+  </body>
+</html>

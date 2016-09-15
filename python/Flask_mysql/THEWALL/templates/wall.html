@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WELCOME</title>
+  </head>
+  <body>
+    <p> Welcome to your wall{{session['name']}}</p>
+    <p>Post a message</p>
+    <form action="/message" method="POST">
+      <textarea name="message" type="text" rows="5" cols="50"></textarea>
+      <button>Post Message</button>
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message['message']}}</p>
+          {% endfor %}
+        {% endif %}
+    </form>
+    <!-- <form action="/comment" method="post">
+      <input type="text" name="name" value="id"/>
+      <button>
+    </form> -->
+  </body>
+</html>

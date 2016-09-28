@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DASHBOARD</title>
+  </head>
+  <body>
+    <a href="/">log out!</a>
+    <h1>Welcome {{request.session.alias}}!</h1>
+    <h3>your quotes!</h3>
+    <table style="border:1px solid black">
+  <thead>
+    <tr>
+      <th>quote by</th>
+      <th>actual quote</th>
+      <th>posted by</th>
+      <th>action</th>
+    </tr>
+  </thead>
+      <tr>
+        <td style="border:1px solid black"></td>
+        <td style="border:1px solid black"></td>
+        <td style="border:1px solid black"></td>
+        <td style="border:1px solid black"><a href="">Be Gone!</a></td>
+      </tr>
+</table>
+<h1>quotable quotes</h1>
+<table style="border:1px solid black">
+  <thead>
+    <tr>
+      <th>quote by</th>
+      <th>actual quote</th>
+      <th>posted by</th>
+      <th>action</th>
+    </tr>
+  </thead>
+      <tr>
+        {% for quotes in quote %}
+        <td style="border-bottom:1px solid black">{{quotes.quote_by}}</td>
+        <td style="border-bottom:1px solid black">{{quotes.message}}</td>
+        <td style="border-bottom:1px solid black"><a href="/show/{{quotes.made_by.id}}">{{quotes.made_by.alias}}</a></td>
+        <td><a href="/begone/">Be Gone!</a></td>
+      </tr>
+      {% endfor %}
+</table>
+
+    <form action='/create' method='post'>
+      {% csrf_token %}
+      add who this quote is by!<input type="text" name="quote_by">
+      also add the quote!<input type="text" name="message">
+      <input type="submit" values="adding">
+    </form>
+  </body>
+</html>

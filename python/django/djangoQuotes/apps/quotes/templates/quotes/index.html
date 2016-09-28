@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Registration</title>
+  </head>
+  <body>
+    <h1>Hello User! Please sign in or register C:</h1>
+      {% if messages %}
+            {% for message in messages %}
+            <li>
+                {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+    <h2>Register</h2>
+    <form action="/register" method='post'>
+      {% csrf_token %}
+      Name!: <input type="text" name="name">
+      Alias!: <input type="text" name="alias">
+      Email!: <input type="text" name="email">
+      Password!: <input type="password" name="password">
+      Confirm Password!: <input type="password" name="confirm_pw">
+      <input type="submit" value="Register">
+    </form>
+    <h2>Login</h2>
+    <form action="/loginlogic" method='post'>
+      {% csrf_token %}
+      username <input type="text" name="email">
+      Password <input type="password" name="password">
+      <input type="submit" value="Login">
+    </form>
+    <h1> users that have registered!</h1>
+    <table>
+        <tr>
+          <th>Name!</th>
+          <th>username!</th>
+          <th>email</th>
+          <th>password</th>
+        </tr>
+    </thead>
+    {% for users in user %}
+      <tr>
+        <td>{{users.name}}</td>
+        <td>{{users.alias}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.password}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

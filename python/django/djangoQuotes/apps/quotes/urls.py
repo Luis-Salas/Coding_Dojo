@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^create$', views.create),
     url(r'^add2me/(?P<id>\d+)$', views.add2me),
     url(r'^show/(?P<id>\d+)$', views.show),
-    # url(r'^show$', views.show),
+    url(r'^remove/(?P<id>\d+)$', views.remove),
+
 ]

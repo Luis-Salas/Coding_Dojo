@@ -32,22 +32,6 @@
       <input type="submit" value="Login">
     </form>
     <h1> users that have registered!</h1>
-    <table>
-        <tr>
-          <th>Name!</th>
-          <th>username!</th>
-          <th>email</th>
-          <th>password</th>
-        </tr>
-    </thead>
-    {% for users in user %}
-      <tr>
-        <td>{{users.name}}</td>
-        <td>{{users.alias}}</td>
-        <td>{{users.email}}</td>
-        <td>{{users.password}}</td>
-      </tr>
-      {% endfor %}
     </table>
   </body>
 </html>

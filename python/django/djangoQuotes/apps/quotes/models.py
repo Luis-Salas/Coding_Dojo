@@ -40,8 +40,7 @@ class UserManager(models.Manager):
                 else:
                     print('no match')
                     errors.append('incorrect password')
-            except:
-                    ObjectDoesNotExist
+            except ObjectDoesNotExist:
                     errors.append('no registry found')
         if len(errors) > 0:
             return (False, errors)
@@ -60,7 +59,7 @@ class QuoteManager(models.Manager):
             errors.append('minimum of 10 characters for message please!')
             return(False, errors)
         else:
-            quote = self.create(quote_by=request.POST['quote_by'], message=request.POST['message'])
+            quote = self.create(quote_by=request.POST['quote_by'], message=request.POST['message'], made_by=Users.objects.get(id=request.session['id']) )
             return(True, quote)
 # Create your models here.
 class Users(models.Model):
@@ -73,7 +72,7 @@ class Users(models.Model):
     objects = UserManager()
 
 class Quotes(models.Model):
-    made_by = models.ForeignKey(Users, default=1)
+    made_by = models.ForeignKey(Users)
     quote_by = models.CharField(max_length=100)
     message = models.CharField(max_length=100)
     updated_at = models.DateTimeField(auto_now_add=True)
@@ -81,7 +80,7 @@ class Quotes(models.Model):
     objects = QuoteManager()
 
 class MyQuotes(models.Model):
-    user = models.ForeignKey(Users, default=1)
-    quote = models.ForeignKey(Quotes, default=1)
+    user = models.ForeignKey(Users)
+    quote = models.ForeignKey(Quotes)
     updated_at = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now=True)

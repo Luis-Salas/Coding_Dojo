@@ -5,9 +5,8 @@
     <title>DASHBOARD</title>
   </head>
   <body>
-    <a href="/">log out!</a>
-    <h1>Welcome {{request.session.alias}}!</h1>
-    <h3>your quotes!</h3>
+    <h3><a href="/">log out!</a></h3>
+    <h1>your quotes!</h1>
     <table style="border:1px solid black">
   <thead>
     <tr>
@@ -17,12 +16,14 @@
       <th>action</th>
     </tr>
   </thead>
+  {% for quotes in myquotes %}
       <tr>
-        <td style="border:1px solid black"></td>
-        <td style="border:1px solid black"></td>
-        <td style="border:1px solid black"></td>
-        <td style="border:1px solid black"><a href="">Be Gone!</a></td>
+        <td style="border:1px solid black">{{quotes.quote.quote_by}}</td>
+        <td style="border:1px solid black">{{quotes.quote.message}}</td>
+        <td style="border:1px solid black"><a href="/show/{{quotes.quote.made_by.id}}">{{quotes.quote.made_by.alias}}</a></td>
+        <td style="border:1px solid black"><a href="/remove/{{quotes.id}}">Be Gone!</a></td>
       </tr>
+      {% endfor %}
 </table>
 <h1>quotable quotes</h1>
 <table style="border:1px solid black">
@@ -35,15 +36,14 @@
     </tr>
   </thead>
       <tr>
-        {% for quotes in quote %}
+        {% for quotes in allquotes %}
         <td style="border-bottom:1px solid black">{{quotes.quote_by}}</td>
         <td style="border-bottom:1px solid black">{{quotes.message}}</td>
         <td style="border-bottom:1px solid black"><a href="/show/{{quotes.made_by.id}}">{{quotes.made_by.alias}}</a></td>
-        <td><a href="/begone/">Be Gone!</a></td>
+        <td><a href="/add2me/{{quotes.id}}">add to my quotes!</a></td>
       </tr>
       {% endfor %}
 </table>
-
     <form action='/create' method='post'>
       {% csrf_token %}
       add who this quote is by!<input type="text" name="quote_by">

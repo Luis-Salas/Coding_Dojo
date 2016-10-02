@@ -5,6 +5,11 @@
     <title>Show</title>
   </head>
   <body>
-    <h1>hello user!</h1>
+    <h3><a href="/dashboard">back to dashboard</a></h3>
+    <h1>Alias: {{alias}}</h1>
+    <h1>count of quotes: {{count}}</h1>
+    {% for quotes in stuff %}
+      <br>Quote:{{quotes.message}}</br>
+    {% endfor %}
   </body>
 </html>

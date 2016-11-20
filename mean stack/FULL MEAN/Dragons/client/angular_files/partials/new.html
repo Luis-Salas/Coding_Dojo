@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>messages</title>
+  </head>
+  <body>
+    <div ng-controller='dragonController as DC'>
+      <ul>
+        <li><a href="/#/new">make a new Dragon</a> |</li>
+        <li><a href="/#/edit">edit</a> |</li>
+        <li><a href="/#/update">update a new dragon</a> |</li>
+        <li><a href="/#/show">show</a></li>
+      </ul>
+      <form name="dragonForm"></button>
+        <h4>name</h4>
+        <input type="text" name="name" ng-model='DC.newDragon.name' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>color</h4>
+        <input type="text" name="color" ng-model='DC.newDragon.color' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>element</h4>
+        <input type="text" name="element" ng-model='DC.newDragon.element' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>moves</h4>
+        <input type="text" name="moves" ng-model='DC.newDragon.moves' ng-minlength="2" ng-maxlength="256" required><br>
+        strength
+        <input type="Number" name="strength" ng-model='DC.newDragon.attributes.strength' min="0" max="25" required><br>
+        <h4>speed</h4>
+        <input type="Number" name="speed" ng-model='DC.newDragon.attributes.speed' min="0" ng-maxlength="25" required><br>
+        <h4>stamina</h4>
+        <input type="Number" name="speed" ng-model='DC.newDragon.attributes.stamina' min="0" max="25" required><br>
+        <h4>wisdom</h4>
+        <input type="Number" name="speed" ng-model='DC.newDragon.attributes.wisdom' min="0" max="25" required><br>
+
+
+        <button ng-click="DC.createDragons()">submit</button>
+      </form>
+    </div>
+
+  </body>
+</html>

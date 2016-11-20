@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script src="bower_components/angular-route/angular-route.js" charset="utf-8"></script>
+    <script>
+    console.log(angular)
+    var myApp = angular.module('myApp', ['ngRoute'])
+
+    myApp.config(function ($routeProvider) {
+      $routeProvider
+       .when('/',{
+           templateUrl: 'partials/user.html',
+       })
+       
+       .when('/users',{
+           templateUrl: 'partials/user.html',
+       })
+
+       .otherwise('/usersList',{
+           templateUrl: 'partials/userList.html'
+       })
+     });
+    </script>
+
+  </head>
+  <body>
+    <h1>players and associations Demo</h1>
+    <h1><a href="#/users">users</a> | <a href="#/userList">userList</a></h1>
+    <div ng-view="">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<h1>Welcome!</h1>
+<h2>Register Here</h2>
+<form action="create" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="first_name" placeholder="First Name"/></br>
+  <br><input type="text" name="last_name" placeholder="Last Name"/></br>
+  <br><input type="text" name="email" placeholder="Email"/></br>
+  <br><input type="text" name="location" placeholder="Location"/></br>
+  <br><input type="password" name="password" placeholder="Password"/></br>
+  <br><input type="password" name="password_confirmation" placeholder="Confirm password"/></br>
+  <br><input type="submit" value="Register"/></br>
+</form>
+
+<h2>Or log in here</h2>
+<form action="logIn" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="mail" placeholder="Email"/></br>
+  <br><input type="password" name="pass" placeholder="Password"/></br>
+  <br><input type="submit" value="Log In"/></br>
+</form>

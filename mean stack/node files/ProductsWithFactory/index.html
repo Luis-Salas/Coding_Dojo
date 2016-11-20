@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script>
+      console.log(angular)
+      var myUsersApp = angular.module('myApp', []);
+
+      myUsersApp.controller('usersController', ['$scope','productsFactory', function($scope, productsFactory){
+        $scope.products = [];
+
+        productsFactory.getProducts( function(data){
+          $scope.products = data;
+        })
+
+        $scope.addProduct=function(){
+          productsFactory.addProduct(  $scope.newProduct  )
+          $scope.newProduct = {}
+        }
+
+        $scope.deleteProduct= function(idx){
+          console.log('delete me!!' + idx)
+          $scope.products.splice(idx,1)
+        }
+      }])
+
+      //products factory//
+      myUsersApp.factory('productsFactory', function(){
+        var products = []
+        var factory = {}
+
+        factory.getProducts = function(callback){
+          callback(products);
+        }
+
+        factory.addProduct = function(mmm){
+          console.log('in factory method', mmm)
+          products.push(mmm)
+
+        }
+
+        return factory;
+      });
+
+
+
+
+    </script>
+  </head>
+  <body ng-controller="usersController">
+    <h1>hello</h1>
+    <form>
+      product name<input type="text" ng-model="newProduct.name">
+      price<input type="text" ng-model="newProduct.price">
+      <input type="submit" value="submit" ng-click="addProduct()">
+    </form>
+    <table>
+      <thead>
+        <th>product name</th>
+        <th>price</th>
+        <th>action</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="product in products">
+
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td><a href="" ng-click="deleteProduct($index)">delete me!</a></td>
+        </tr>
+      </tbody>
+  </body>
+</html>

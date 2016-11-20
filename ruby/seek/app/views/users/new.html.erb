@@ -1,0 +1,21 @@
+<h1>Create a account</h1>
+<form action="/create" method="post" role="form">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <p>
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="Enter email">
+  </p>
+  <p>
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="name">
+  </p>
+  <p>
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="Enter password">
+  </p>
+  <p>
+    <label for="password_confirmation">Password Confirmation</label>
+    <input type="password" name="password_confirmation" placeholder="confirm password">
+  </p>
+  <button type="submit">Join</button>
+</form>

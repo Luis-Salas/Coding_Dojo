@@ -1,0 +1,9 @@
+<h1>hello please fill out this form kind person :)</h1>
+<h1>DOJO SURVEY</h1>
+<form action="result" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name="name" placeholder="Name"/>
+  <input type="text" name="location" placeholder="location"/>
+  <input type="text" name="language" placeholder="language"/>
+  <input type="submit" value="create"/>
+</form>

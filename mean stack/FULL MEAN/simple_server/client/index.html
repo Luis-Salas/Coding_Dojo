@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- DONT FORGET TO ADD YOUR ANGULAR APP! -->
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Awesome Friends</title>
+    <!-- Angular from bower_components, otherwise find the CDN -->
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script src="bower_components/angular-route/angular-route.js" charset="utf-8"></script>
+    <!-- End Bower Components -->
+    <script>
+      console.log(angular)
+      var myApp = angular.module('myApp', ['ngRoute'])
+
+      myApp.config(function ($routeProvider){
+        $routeProvider
+        .when('/', {
+          templateUrl: 'partials/friends.html'
+        })
+        .when('/show', {
+          templateUrl: 'partials/show.html'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+      });
+      $scope.addFriend = function(){
+        console.log('made it to add Friends')
+      }
+    </script>
+  </head>
+  <body>
+    <h1>hello world!</h1>
+    <h1><a href="#/"></a> | <a href="#/show"></a>
+    <div ng-view="">
+  </div>
+  </body>
+</html>

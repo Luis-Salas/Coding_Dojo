@@ -1,0 +1,25 @@
+<h1>Edit User</h1>
+<form action="/update/<%= @user.id %>" method="post" role="form">
+  <input type="hidden"name="_method"value="put">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <p>
+    <label for="email">email</label>
+    <input type="text" id="email" name="email" value="<%= @user.email %>">
+  </p>
+  <p>
+    <label for="name">name</label>
+    <input type="text" id="name" name="name" value="<%= @user.name %>">
+  </p>
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="Enter password">
+</p>
+<p>
+  <label for="password_confirmation">Password Confirmation</label>
+  <input type="password" name="password_confirmation" placeholder="confirm password">
+</p>
+  <button type="submit">Update</button>
+</form>
+<form action="/users/destroy/<%= @user.id %>" method="post">
+  <input type="hidden"name="_method"value="delete">
+  <button type="submit" data-method="delete">Delete Account</button>
+</form>

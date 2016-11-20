@@ -1,0 +1,22 @@
+<h1>all Users</h1>
+<table>
+  <thead>
+    <tr>
+      <th>first name</th>
+      <th>last name</th>
+      <th>email</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |users| %>
+    <tr>
+      <td> <%= users.first_name %> </td>
+      <td> <%= users.last_name %> </td>
+      <td> <%= users.email_address %> </td>
+      <td><a href="show/<%= users.id %>">show</td>
+      <td><a href="edit/<%= users.id %>">edit</a>
+      <td><a href="destroy/<%= users.id %>" data-method="delete">Destroy</a>
+    </tr>
+<% end %>
+<a href="new">create a new user</a>

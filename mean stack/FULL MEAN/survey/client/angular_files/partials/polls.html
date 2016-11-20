@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>messages</title>
+  </head>
+  <body>
+    <h1>make a question <span style="color:red">{{ UC.myUser.name }}</span></h1>
+    <div ng-controller='questionController as QC'>
+      {{ QC.myQuestion }}
+      <form>
+        <input type="text" name="message" ng-model='QC.content.question' ng-minlength="2" ng-maxlength="256" required><br>
+        <button ng-click="QC.question()">submit</button>
+        <table>
+          <thead>
+              <tr>
+                <th>Question</th>
+                <th>answer</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="stuff in myQuestion">
+                <td>{{ stuff.content }}</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </thead>
+        </table>
+
+    </div>
+
+  </body>
+</html>

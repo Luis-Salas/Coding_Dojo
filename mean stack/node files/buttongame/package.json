@@ -1,0 +1,26 @@
+{
+  "name": "buttongame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "luis",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "engine.io": "^1.7.0",
+    "express": "^4.14.0",
+    "socket.io": "^1.5.0"
+  }
+}

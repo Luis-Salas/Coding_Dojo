@@ -1,0 +1,15 @@
+<h1> showing product </h1>
+<br><h3>Name: <%= @show['name'] %></h3></br>
+<br><h3>Description: <%= @show['description'] %></h3></br>
+<br><h3>Price: <%= @show['price'] %></h3></br>
+<td><a href="edit/<%= params[:id] %>">edit</a>
+
+<h1>make a comment</h1>
+<form action="comment/<%= params[:id] %>" method="post">
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<br><textarea rows="6" cols="50" name="comment"placeholder="post a comment!"></textarea></br>
+<input type="submit" value="create"/>
+
+ <% @comment.each do |stuff| %>
+   <td> <%= stuff.comment %> </td>
+<% end %>

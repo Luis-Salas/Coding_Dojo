@@ -1,0 +1,55 @@
+<script src="jquery-1.11.2.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var arr = [
+    [1,1,1,1,2,2,3,4],
+    [1,1,1,1,2,2,3,4],
+    [1,1,1,1,2,2,3,4],
+    [1,1,1,1,2,2,3,4],
+    [1,1,1,1,2,2,3,4],
+    [2,2,2,2,2,2,3,4],
+    [1,1,1,1,2,2,3,4],
+  ]
+  // MAKE WORLD //
+  function makeWorld(arr){
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = 0; j < arr[i].length; j++) {
+        $('body').append('<div row='+i+' col='+j+' class=_'+arr[i][j]+'></div>')
+      }
+      $('body').append('<br>')
+    }
+  }
+  makeWorld(arr)
+});
+
+</script>
+<style media="screen">
+  div {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    display: inline-block;
+  }
+  ._1{
+    background-color: red;
+  }
+  ._2{
+    background-color: blue;
+  }
+  ._3{
+    background-color: green;
+  }
+  ._4{
+    background-color: yellow;
+  }
+  ._5{
+    background-color: silver;
+  }
+  ._6{
+    background-color: orange;
+  }
+</style>
+
+<body>
+
+</body>

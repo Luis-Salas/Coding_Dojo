@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>show poll</title>
+  </head>
+  <body>
+    <h1></h1>
+    <div ng-controller = 'pollController as PC' ng-init='PC.show(routeParams)'>
+      <h1>Question</h1>
+      {{ PC.show }}
+        <h2>{{ PC.show.question }}</h2>
+      <table>
+        <thead>
+            <tr>
+              <th>option</th>
+              <th>current vote count</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{PC.show.option_1}}</td>
+              <td>{{PC.show.vote1}}</td>
+              <td><button ng-click="PC.vote1(PC.show._id)">vote</button></td>
+            </tr>
+            <tr>
+              <td>{{PC.show.option_2}}</td>
+              <td>{{PC.show.vote2}}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>{{PC.show.option_3}}</td>
+              <td>{{PC.show.vote3}}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>{{PC.show.option_4}}</td>
+              <td>{{PC.show.vote4}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </thead>
+      </table>
+
+    </div>
+  </body>
+</html>

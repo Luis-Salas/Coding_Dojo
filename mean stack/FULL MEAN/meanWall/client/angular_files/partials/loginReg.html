@@ -1,0 +1,6 @@
+<div ng-controller='usersController as UC'>
+  <h1>enter a username</h1>
+  <form>
+    <input type="text" name="user" ng-model='UC.users.name' ng-minlength="2" ng-maxlength="256" required><br>
+    <button ng-click="UC.createUser()">submit</button>
+</div>

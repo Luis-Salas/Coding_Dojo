@@ -1,0 +1,7 @@
+<h1>welcome back please log in!</h1>
+<form action="/show" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="mail" placeholder="Email"/></br>
+  <br><input type="password" name="pass" placeholder="Password"/></br>
+  <br><input type="submit" value="Log In"/></br>
+</form>

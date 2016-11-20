@@ -1,0 +1,11 @@
+<h1>Hello <%= @user.name %></h1>
+<h2> have any secrets?</h2>
+<form action="/secret" method="post" role="form">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <textarea rows="6" cols="50" name="secret"placeholder="make a secret!"></textarea>
+  <button>tell me your secret</button>
+</form>
+<form action="/logOut" method="post">
+    <button>Log out</button>
+</form>
+<a href="/users/edit/<%= @user.id %>">Edit Profile</a>

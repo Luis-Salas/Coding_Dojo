@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>messages</title>
+  </head>
+  <body>
+    <h1>make a poll <span style="color:red">{{ myUser.name }}</span></h1>
+    <div ng-controller='pollController as PC'>
+      <form>
+        <h4>question</h4>
+        <input type="text" name="question" ng-model='PC.poll.question' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>option_1</h4>
+        <input type="text" name="option_1" ng-model='PC.poll.option_1' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>option_2</h4>
+        <input type="text" name="option_2" ng-model='PC.poll.option_2' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>option_3</h4>
+        <input type="text" name="option_3" ng-model='PC.poll.option_3' ng-minlength="2" ng-maxlength="256" required><br>
+        <h4>option_4</h4>
+        <input type="text" name="option_3" ng-model='PC.poll.option_4' ng-minlength="2" ng-maxlength="256" required><br>
+
+        <button ng-click="PC.makePoll()">submit</button>
+      </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>ng-filter</title>
+    <script src='bower_components/angular/angular.js'></script>
+    <script type='text/javascript'>
+    var app = angular.module('myApp', []);
+    myApp.controller('colorController', ['$scope' , function($scope){
+      $scope.colors = [
+        {name:'Almond',hex:'#EFDECD', rgb:'239,222,205'},
+        {name:'Antique Brass', hex:'#CD9575', rgb:'205,149,177'},
+        {name:'Apricot', hex:'#FDD9B5', rbg:'253,217,181'}
+      ];
+    }])
+
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="colorController">
+      Search Color:<input type="text" ng-model="filter_name">
+      <li ng-repeat="color in colors | filter:filter_name">
+        {{ colors.name }} {{ colors.hex }}, {{ colors:rgb }}
+      </li>
+    </div>
+  </body>
+</html>

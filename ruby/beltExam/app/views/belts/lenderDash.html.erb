@@ -1,0 +1,59 @@
+<a href="/login">log out</a>
+<h1> Name:  <%= @lender[:first_name] %> <%= @lender[:last_name] %></h1>
+<h1> Account balance:  <%= @lender[:money] %> $</h1>
+<table style="border:solid black 1px">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Need Money for</th>
+      <th>Reason for loan</th>
+      <th>Amount Needed</th>
+      <th>Amount Raised</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all.each do |beggar| %>
+    <tr>
+      <td style="border:solid black 1px"> <%= beggar.first_name %> </td>
+      <td style="border:solid black 1px"> <%= beggar.reason %> </td>
+      <td style="border:solid black 1px"> <%= beggar.description %> </td>
+      <td style="border:solid black 1px"> <%= beggar.amount %> </td>
+      <td style="border:solid black 1px"> <%= beggar.money %> </td>
+      <td style="border:solid black 1px">
+        <form action="/lending/<%= beggar.id %>" method="post">
+          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+          Amount to lend  <input type="number" name="money" placeholder="amount"/>
+          <input type="submit" value="lend"/>
+        </form>
+      </td>
+
+    </tr>
+<% end %>
+</table>
+
+
+<h1>people who you lent money to</h1>
+<table style="border:solid black 1px">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Need Money for</th>
+      <th>Reason for loan</th>
+      <th>Amount Needed</th>
+      <th>Amount Raised</th>
+      <th>Amount Lent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @just.each do |exclude| %>
+    <tr>
+      <td style="border:solid black 1px"> <%= exclude.borrower.first_name %> <%= exclude.borrower.last_name %> </td>
+      <td style="border:solid black 1px"> <%= exclude.borrower.reason %> </td>
+      <td style="border:solid black 1px"> <%= exclude.borrower.description %> </td>
+      <td style="border:solid black 1px"> <%= exclude.borrower.amount %> </td>
+      <td style="border:solid black 1px"> </td>
+      <td style="border:solid black 1px"> <%= exclude.amount %> </td>
+    </tr>
+<% end %>
+</table>

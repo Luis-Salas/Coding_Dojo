@@ -1,0 +1,18 @@
+<h1>Edit this product</h1>
+<form action="update/<%= params[:id] %>" method="post">
+  <select name="category" type="number">
+    <option value="1">Electronics</option>
+    <option value="2">Household</option>
+    <option value="3">Gardening</option>
+    <option value="4">Automotive</option>
+    <option value="5">Ninjas</option>
+  </select>
+  <input type="hidden"name="_method"value="put">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="name" placeholder="name"/></br>
+  <br><input type="text" name="description" placeholder="description"/></br>
+  <br><input type="number" name="price" placeholder="price"/></br>
+  <input type="submit" value="create"/>
+</form>
+<a href="/">back</a>
+<td><a href="products/edit/<%= params[:id] %>">edit</a>

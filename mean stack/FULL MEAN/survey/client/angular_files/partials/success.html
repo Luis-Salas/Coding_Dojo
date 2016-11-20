@@ -1,0 +1,26 @@
+<div ng-controller='usersController as UC' ng-init='UC.getSession()'>
+  {{ UC.myUser }}
+  <h1>hello <span style="color:red">{{ UC.myUser.name }}</span></h1>
+  <a href ="/#/polls">add a poll!</a>
+  <button ng-click='UC.logout()'>Logout</button>
+</div>
+<h1>All question!</h1>
+<div ng-controller='questionController as QC'>
+  <table>
+    <thead>
+        <tr>
+          <th>name</th>
+          <th>survey</th>
+          <th>data Posted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{QC.question}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </thead>
+  </table>
+</div>

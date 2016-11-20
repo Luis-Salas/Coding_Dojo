@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document).ready(function(){
+      var user = prompt('please enter your name')
+      console.log(user)
+      if(user){
+      var socket = io.connect();
+
+      socket.emit('user_conected', function(data){
+        socket.broadcast.emit('new_user',data)
+        console.log(data)
+      })
+    }
+    })
+    </script>
+    </head>
+  <body>
+  <div class ="container"></div>
+  <div class="chat">
+
+  </body>
+</html>

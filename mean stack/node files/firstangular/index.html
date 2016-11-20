@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .left,
+        .right {
+            display: inline-block;
+            width: 45%;
+            border: 1px solid black;
+            vertical-align: top;
+            max-height: 400px;
+            overflow-y: scroll;
+            padding: 5px;
+        }
+    </style>
+    <script src="bower_components/angular/angular.js" charset="utf-8">
+    </script>
+    <script>
+        var app = angular.module('app', []);
+        /*
+         this is our controller with $scope injected
+        */
+        app.controller('foodsController', ['$scope', function($scope) {
+            $scope.foods = [];
+            $scope.addFood = function() {
+                $scope.foods.push($scope.food);
+                $scope.food = "";
+            }
+        }]);
+    </script>
+
+</head>
+
+<body>
+    <div ng-controller='foodsController'>
+        <div class="left">
+            <h2><u>Add Food</u></h2>
+            <form ng-submit="addFood()">
+                <input type="text" ng-model='food'>
+                <input type="submit" value="add">
+            </form>
+            <p ng-if="food">
+                You are currently typing: {{food}}
+            </p>
+        </div>
+        <div class="right">
+            <h2><u>Food Stuff</u></h2>
+            <input placeholder="filter..." type="text" ng-model="foodFilter">
+            <div ng-repeat="food in foods | filter:foodFilter track by $index">
+                <p>{{food}}</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

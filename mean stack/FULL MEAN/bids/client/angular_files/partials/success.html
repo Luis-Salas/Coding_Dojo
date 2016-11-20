@@ -1,0 +1,48 @@
+<div ng-controller='usersController as UC'>
+  <h1>hello <span style="color:red">{{ UC.myUser.name }}</span> make a bid!</h1>
+  <a href ="/#/poll">make a new Poll!</a>
+  <button ng-click='UC.logout()'>Logout</button>
+</div>
+<h1>All bids!</h1>
+<div ng-controller='bidController as BC' ng-init="BC.get1()">
+  {{ BC.get1}}
+  <br></br>
+  <h1 style="display:inline-block; margin-left: 40px">product 1</h1>
+  <h1 style="display:inline-block; margin-left: 40px">product 2</h1>
+  <h1 style="display:inline-block; margin-left: 40px">product 3</h1>
+  <br></br>
+  <input type="Number" name="bid1" ng-model="BC.product1.bid">
+  <button ng-click="BC.create()">bid </button>
+  <input type="Number" name="bid2" ng-model="BC.product2.bid">
+  <button ng-click="BC.create2()">bid </button>
+  <input type="Number" name="bid3" ng-model="BC.product3.bid">
+  <button ng-click="BC.create3()">bid </button>
+
+  <table>
+    <thead>
+      <tr>
+        <td>bid</td>
+        <td>bid2</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in BC.get1" ng-if="x.product1 > 0">
+        <td>{{x.product1}}</td>
+        <td>{{x._user.name}}</td>
+        <td>_____________</td>
+
+      </tr>
+      <tr ng-repeat="x in BC.get1" ng-if="x.product2 > 0">
+        <td>{{x.product2}}</td>
+        <td>{{x._user.name}}</td>
+        <td>}}}}}}}}}}}}}}}}}}}</td>
+      </tr>
+      <tr ng-repeat="x in BC.get1" ng-if="x.product3 > 0">
+        <td>{{x.product3}}</td>
+        <td>{{x._user.name}}</td>
+        <td>|||||||||||||||||||||||||||||</td>
+      </tr>
+
+    </tbody>
+    <a href ="/#/show">SHOW!</a>
+</div>

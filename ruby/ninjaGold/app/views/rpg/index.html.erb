@@ -1,0 +1,35 @@
+<h1>Ninja Gold</h1>
+<h3>total Gold <%= @money %><h3>
+<h1>farm</h1>
+  <h4>earns 10-20 gold</h4>
+<form action="farm" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="submit" label="find gold"/>
+</form>
+
+<h1>cave</h1>
+  <h4>earns 5-10 gold</h4>
+<form action="cave" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="submit" label="find gold"/>
+</form>
+
+<h1>house</h1>
+  <h4>earns 2-5 gold</h4>
+<form action="house" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="submit" label="find gold"/>
+</form>
+
+<h1>Casino</h1>
+  <h4>earns -50-50 gold</h4>
+<form action="casino" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="submit" label="find gold"/>
+</form>
+
+<div id="messages">
+<% session["messages"].reverse.each do |message| %>
+  <br><%= message %></br>
+<% end %>
+</div>

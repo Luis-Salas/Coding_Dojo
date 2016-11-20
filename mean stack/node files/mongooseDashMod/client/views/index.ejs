@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <h1>all doggos here!!!</h1>
+    <table>
+      <thead>
+        <th>name</th>
+        <th>show</th>
+      </thead>
+      <% for(var i in dogs) { %>
+      <tbody>
+        <td><%= dogs[i].name %></td>
+        <td><a href="<%=dogs[i].name._id%>">show</td>
+      </tbody>
+    </table>
+    <% } %>
+
+    <h1><a href="/new">add a new doggo</a></h1>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<h1>Hello <%= @user[:first_name] %></h1>
+<h1>Here are some events in your state</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Host</th>
+      <th>Action/status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @local.each do |event| %>
+    <tr>
+      <td> <%= event.name %> </td>
+      <td> <%= event.date %> </td>
+    </tr>
+<% end %>
+</table>
+
+<h1>Events in other States</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Host</th>
+      <th>Action/status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @other.each do |event| %>
+    <tr>
+      <td> <%= event.name %> </td>
+      <td> <%= event.date %> </td>
+    </tr>
+<% end %>
+</table>
+
+
+<h1> add an event here</h1>
+<form action="/create/event" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="name" placeholder="Name"/></br>
+  <br><input type="date" name="date" placeholder="date"/></br>
+  <br><input type="text" name="location" placeholder="location"/></br>
+  <br><input type="submit" value="Register"/></br>
+</form>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <h1>Welcome to the Dojo message Board</h1>
+    <% for (var message in messages) {%>
+    <form action="/message" method="post">
+      <br>name<input type="text" name="name"></br>
+      <br>message<textarea name="message" rows="8" col="40"></textarea><br>
+      <button>post message</button>
+    </form>
+    <div class="messages">
+      <h4>name:  <%= messages[message].name %></h4>
+      <h4>message: <%= messages[message].message %></h4>
+    </div>
+    <% for (var idx =0; idx < messages[message]._comments.length; idx++) {%>
+    <div class="comments">
+      <h4>name <%= messages[message]._comments[idx].name %></h4>
+      <h4>comment <%= messages[message]._comments[idx].comment %></h4>
+    </div>
+      <% } %>
+    <form action="/comments/<%=messages[message]._id %>" method="post">
+      <br>name<input type="text" name="name"></br>
+      <br>comment<textarea name="comment" rows="8" col="40"></textarea></br>
+      <button>post comment</button>
+    <% } %>
+    </form>
+  </body>
+</html>

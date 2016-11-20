@@ -1,0 +1,26 @@
+<h1>Welcome! choose to be a Lender or Borrower</h1>
+<h2>Lender</h2>
+<form action="/lender" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="first_name" placeholder="First Name"><br>
+  <br><input type="text" name="last_name" placeholder="Last Name"><br>
+  <br><input type="text" name="email" placeholder="Email"><br>
+  <br><input type="password" name="password" placeholder="Password"><br>
+  <br><input type="number" name="money" placeholder="money"><br>
+  <br><input type="submit" value="Register"><br>
+</form>
+<a href="/login">already a member?</a>
+
+<h2>Borrower</h2>
+<form action="/borrower" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <br><input type="text" name="first_name" placeholder="First Name"><br>
+  <br><input type="text" name="last_name" placeholder="Last Name"><br>
+  <br><input type="text" name="email" placeholder="Email"><br>
+  <br><input type="password" name="password" placeholder="Password"><br>
+  <br><input type="text" name="reason" placeholder="Need Money For"><br>
+  <br><textarea rows="6" cols="50" name="description" placeholder="Description"></textarea>
+  <br><input type="number" name="amount" placeholder="amount needed"><br>
+  <br><input type="submit" value="Register"><br>
+</form>
+<a href="/login">already a member?</a>

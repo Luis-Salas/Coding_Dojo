@@ -1,0 +1,23 @@
+<a href="/login">log out</a>
+<h1>Name: <%= @borrower[:first_name] %>  <%= @borrower[:last_name] %></h1>
+<h1>amount needed: <%= @borrower[:amount] %></h1>
+<h1>amount raised: <%= @total %></h1>
+
+<h1>List of people who lent you money</h1>
+<table style="border:solid black 1px">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>Amount lent</h1>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lent.each do |lend| %>
+    <tr>
+      <td style="border:solid black 1px"> <%= lend.lender.first_name %> <%= lend.lender.last_name %></td>
+      <td style="border:solid black 1px"> <%= lend.lender.email %> </td>
+      <td style="border:solid black 1px"> <%= lend.amount %> </td>
+    </tr>
+<% end %>
+</table>

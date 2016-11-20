@@ -1,0 +1,25 @@
+<h1>All products</h1>
+<a href="products/new">new product</a>
+<table>
+  <thead>
+    <tr>
+      <th>first name</th>
+      <th>last name</th>
+      <th>price</th>
+      <th>category</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td> <%= product.name %> </td>
+      <td> <%= product.description %> </td>
+      <td> <%= product.price %> </td>
+      <td> <%= product.category.name %> </td>
+      <td><a href="products/show/<%= product.id %>">show</td>
+      <td><a href="products/edit/<%= product.id %>">edit</a>
+      <td><a href="products/destroy/<%= product.id %>" data-method="delete">Destroy</a>
+    </tr>
+<% end %>
+</table>

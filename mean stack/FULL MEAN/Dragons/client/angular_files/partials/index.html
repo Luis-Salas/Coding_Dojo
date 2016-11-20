@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>messages</title>
+  </head>
+  <body>
+    <h1>SHOWING ALL DRAGONS</h1>
+    <h3><a href="/#/new">make a new Dragon</a> |</h3>
+    <h3><a href="/#/edit">edit</a> |</h3>
+    <h3><a href="/#/update">update a new dragon</a> |</h3>
+    <h3><a href="/#/show">show</a></h3>
+    <div ng-controller='dragonController as DC' ng-init='DC.getDragons()'>
+      {{ DC.dragons[0].name }}
+    <table>
+      <thead>
+        <tr>
+          <th>Dragon Name</th>
+          <th>Dragon color</th>
+          <th>Dragon element</th>
+          <th>Dragon moves</th>
+          <th>Dragon attributes</th>
+        </tr>
+      <tbody>
+        <tr><span ng-repeat="dragon in DC.dragons"></span>
+          <td><span ng-bind="dragon.name"></span><td>
+          <td><span ng-bind="dragon.color"></span><td>
+          <td><span ng-bind="dragon.elements"></span><td>
+          <td><span ng-bind="dragon.moves"></span><td>
+          <td><span><ul ng-bind="dragon.attributes"></span><td>
+          <td><span><ul ng-repeat="(key, value) in dragon.attributes">
+            <li>{{key}} - <span ng-bind='value'></span></li>
+          </ul></td>
+          <a href ="#/dragons"></a>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </body>
+</html>

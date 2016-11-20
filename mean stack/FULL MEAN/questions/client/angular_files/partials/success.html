@@ -1,0 +1,25 @@
+<div ng-controller='usersController as UC'>
+  <h1>hello <span style="color:red">{{ UC.myUser.name }}</span></h1>
+  <a href ="/#/poll">make a new Poll!</a>
+  <button ng-click='UC.logout()'>Logout</button>
+</div>
+<h1>All Polls!</h1>
+<div ng-controller='pollController as PC' ng-init='PC.getPoll()'>
+  <table>
+    <thead>
+        <tr>
+          <th>name</th>
+          <th>survey Question</th>
+          <th>Date Posted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="poll in PC.polls">
+          <td></td>
+          <td><a href="#/show/{{poll._id}}">{{poll.question}}</a></td>
+          <td>{{poll.createdAt}}</td>
+        </tr>
+      </tbody>
+    </thead>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div id="indexWrapper">
+    <div ng-controller="userController as UC" >
+      <div id="indexPage">
+        <div class="card-panel grey darken-4 hoverable">
+          <div class="center"><h2>Welcome please type in a screen name</h2></div>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">mode_edit</i>
+                  <input style="font-size:35px;" type="text" ng-model="UC.users.name" rows="4" cols="60" id="icon_prefix2" class="materialize-textarea"></textarea>
+                  <label for="icon_prefix2">Name</label>
+                  <button ng-click="UC.login()" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

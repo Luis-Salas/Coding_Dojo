@@ -1,0 +1,8 @@
+<h1>updating user</h1>
+<div ng-controller="friendController as FC">
+  <form>
+    First name:<input type="text" ng-model="FC.human.first_name" name="first_name">
+    Last Name: <input type="text" ng-model="FC.human.last_name" name="last_name">
+    birthday: <input type="date" ng-model="FC.human.date" name="birthday">
+    <input type="submit" ng-click="FC.update()">
+  </form>

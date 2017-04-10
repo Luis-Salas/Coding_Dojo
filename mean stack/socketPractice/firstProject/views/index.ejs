@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title></title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type ="text/javascript">
+  $(document).ready(function (){
+    // this triggers the connection event in our server!
+    var socket = io.connect();
+    $('button').click(function (){
+      socket.emit("button_clicked", {reason: "because I want to learn about sockets!"});
+    });
+    socket.on('server_response', function (data){
+      console.log('The server says: ' + data.response);
+    });
+    $('#formo').submit(function(event){
+      event.preventDefault();
+      socket.emit("posting_form", {name:$('#name').val(), location: $('#location').val(), favorite: $('#fave').val()})
+    })
+    socket.on('updatedForm', function(data){
+      console.log(data)
+      $('#mainContent').append(' <h1> Thank you for submitting the survey heres what you submitted</h1> <h1>Name:  ' + data.formData['name'] + '</h1>', '<h1> location : ' + data.formData['location'] + '</h1>','<h1> Favoite Language : ' +  data.formData['favorite'] + '</h1><h1> And your lucky number is ' + data.number + '</h1>')
+    })
+  })
+
+  </script>
+</head>
+<body>
+  <form id="formo">
+    Name<input id="name" name="name"/><br>
+    Location<input id="location" name="location"/><br>
+    Favorite Language<input id="fave" name="fave"/>
+    <button>Send</button>
+</form>
+<div id="mainContent" style="background-color:green;">
+</div>
+</body>
+</html>

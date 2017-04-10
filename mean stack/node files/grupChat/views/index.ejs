@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+      $(document).ready(function (){
+        // triggers the connection event in our server!
+        var names  = []
+          var socket = io.connect();
+          $('#messageForm').submit(function(event){
+            event.preventDefault();
+            socket.emit("message_data",{
+              name:$('#message').val()
+            });
+          })
+          var name = prompt('Pleace input your name')
+          socket.emit('my_name',name)
+          console.log(name)
+          names.push(name)
+          socket.on('Kevin', function (data){
+          $('#content').append("<p>" + names[0] + "  " + "said " + data.response.name + "</p>");
+            console.log(data)
+          })
+          socket.on('username',function(data){
+            console.log('YOU MADE IT HERE')
+          $('#name').append("<p> server Says: Hello " + data.response + "</p>" )
+          })
+        });
+        </script>
+    <title>GroupChat</title>
+  </head>
+  <body>
+    <h1>Group Chat</h1>
+
+    <form action="" id="messageForm">
+      <textarea name="message" rows="8" cols="80" id="message"></textarea>
+      <input type="submit">
+    </form>
+    <button>I AM A BUTTON!</button>
+    <div id="content"></div>
+    <div id="name"></div>
+  </body>
+</html>

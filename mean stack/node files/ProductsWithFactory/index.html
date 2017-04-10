@@ -5,56 +5,47 @@
     <title>index</title>
     <script src="bower_components/angular/angular.js" charset="utf-8"></script>
     <script>
-      console.log(angular)
-      var myUsersApp = angular.module('myApp', []);
-
-      myUsersApp.controller('usersController', ['$scope','productsFactory', function($scope, productsFactory){
-        $scope.products = [];
-
-        productsFactory.getProducts( function(data){
-          $scope.products = data;
-        })
-
-        $scope.addProduct=function(){
-          productsFactory.addProduct(  $scope.newProduct  )
-          $scope.newProduct = {}
+    var myAppModule = angular.module('myApp', []);
+    // Create a factory (attached to this module)
+    myAppModule.factory('studentFactory', function (){
+        // The factory is nothing more than a function that returns an object
+        var students = [
+            {name: 'Mike', age: 34},
+            {name: 'John', age: 24},
+            {name: 'Trey', age: 24}];
+        var factory = {};
+        // Add a getStudents key to the factory object with a value of a function.
+        factory.getStudents = function (data, callback){
+          console.log(data)
+            // Pass the students to a callback to be used by whoever calls the method
+            callback(students);
         }
-
-        $scope.deleteProduct= function(idx){
-          console.log('delete me!!' + idx)
-          $scope.products.splice(idx,1)
-        }
-      }])
-
-      //products factory//
-      myUsersApp.factory('productsFactory', function(){
-        var products = []
-        var factory = {}
-
-        factory.getProducts = function(callback){
-          callback(products);
-        }
-
-        factory.addProduct = function(mmm){
-          console.log('in factory method', mmm)
-          products.push(mmm)
-
-        }
-
+        // Most important step: return the object so it can be used by the rest of our angular code
         return factory;
-      });
+    });
 
 
-
-
+    // Create a controller (attached to this module), and inject the studentFactory in it.
+    myAppModule.controller('studentsController', ['$scope', 'studentFactory', function ($scope, studentFactory){
+        //  initialize an empty array so $scope.students maintains a consistent data type
+        $scope.students = [];
+        // run the getStudents method and set $scope data in the callback
+        var idk = "stuff"
+         $scope.getStudents = function(){
+         console.log(idk)
+        studentFactory.getStudents(idk, function (data){
+            $scope.students = data;
+        })
+      }
+    }])
     </script>
   </head>
-  <body ng-controller="usersController">
+  <body ng-controller="studentsController">
     <h1>hello</h1>
     <form>
       product name<input type="text" ng-model="newProduct.name">
       price<input type="text" ng-model="newProduct.price">
-      <input type="submit" value="submit" ng-click="addProduct()">
+      <input type="submit" value="submit" ng-click="getStudents()">
     </form>
     <table>
       <thead>

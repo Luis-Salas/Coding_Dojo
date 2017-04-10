@@ -1,0 +1,8 @@
+<h1>Create a new product</h1>
+<form action="/new" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Name<input type="text" name="name">
+  description<input type="text" name="description">
+  Price<input type="number" name="price">
+  <button type="submit" name="button">Create</button>
+</form>

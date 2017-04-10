@@ -40,7 +40,7 @@ var server = http.createServer(function(request, response){
       response.end();
     });
   }
-  else if(request.url === '/car1'){
+  else if(request.url === '/car5'){
     fs.readFile('views/images/car.jpg',function(errors, contents){
       console.log(errors)
       console.log(contents)

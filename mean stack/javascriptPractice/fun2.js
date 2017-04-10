@@ -19,10 +19,10 @@ console.log(sum)
 var person = {
   name : "luis",
   distance_traveled : 0,
-  say_name : function(){
+  say_name = function(){
     console.log(person.name);
   },
-  say_something:function(str){
+  say_something =function(str){
     console.log(person.name + str)
   },
   walking:function(){

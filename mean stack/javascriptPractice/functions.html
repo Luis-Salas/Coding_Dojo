@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    // function prints(){
+    //   console.log('i am priting stufff')
+    // }
+    // function multi(x){
+    //   val = x * 10
+    //   return val
+    // }
+    // multi(10)
+    // console.log(val)
+    // function string1(){
+    // var stuff = "this is a string from string1"
+    // return stuff
+    // }
+    // var stuff2 = string1()
+    // console.log(stuff2)
+    // function caller(param){
+    //   if(typeof param == 'function'){
+    //     console.log('this is indeed a function')
+    //   }
+    // }
+    // caller(function(){})
+    function myDoubleConsoleLog(param1, param2){
+      console.log(param1())
+      console.log(param2())
+    }
+    myDoubleConsoleLog(function(){console.log('values and stuff')}, function(){console.log('other things')})
+    </script>
+
+    <h1>open the console</h1>
+  </body>
+</html>

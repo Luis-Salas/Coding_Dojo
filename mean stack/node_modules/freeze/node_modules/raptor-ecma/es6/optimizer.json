@@ -1,0 +1,8 @@
+{
+    "dependencies": [
+        {
+            "path": "es6.js",
+            "if": "!extensions.contains('no-es6')"
+        }
+    ]
+}

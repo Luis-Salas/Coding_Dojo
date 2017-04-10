@@ -1,0 +1,5 @@
+{
+    "dependencies": [
+        "../../global-style/optimizer.json"
+    ]
+}

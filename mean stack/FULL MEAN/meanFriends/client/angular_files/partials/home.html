@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Showing all Friends here</h1>
+    <a href ="/#!/new">Add a friend</a>
+    <div ng-controller="friendController as FC" ng-init="FC.index()">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Show</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="person in FC.friends">
+            <td>{{ person.first_name }} {{ person.last_name }}</td>
+            <td>{{ person.birthday}}</td>
+            <td><a href="#!/show/{{person._id}}">show</a></td>
+            <td><a href="#!/update/{{person._id}}">update</a></td>
+            <td><a ng-click="FC.delete()"href="#!/delete/{{person._id}}">delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

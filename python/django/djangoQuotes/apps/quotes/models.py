@@ -41,7 +41,7 @@ class UserManager(models.Manager):
                     print('no match')
                     errors.append('incorrect password')
             except ObjectDoesNotExist:
-                    errors.append('no registry found')
+                    errors.append('Please Register')
         if len(errors) > 0:
             return (False, errors)
             print result

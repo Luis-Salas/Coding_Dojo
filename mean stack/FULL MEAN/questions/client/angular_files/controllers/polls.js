@@ -10,7 +10,7 @@ console.log('made it to poll controller')
     var self = this
     if($routeParams.poll_id){
       pollFactory.show($routeParams.poll_id, function(returnData){
-        console.log('we have an id timeto getdragon')
+        console.log('we have an id timeto')
         console.log("in cont:", returnData)
         self.show = returnData
         console.log('!!!!!!!!!!!!1')
@@ -20,6 +20,8 @@ console.log('made it to poll controller')
     }
     self.makePoll = function (){
       pollFactory.makePoll(self.poll, function(returnData){
+        console.log('YOU ARE HERE MAKING A POLL')
+        console.log(self.poll);
         console.log('in callback', returnData)
       })
     }

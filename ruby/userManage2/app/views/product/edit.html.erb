@@ -1,0 +1,9 @@
+<h1>editing User</h1>
+<form action="/change/<%= @product[:id] %>" method="post">
+  <input type="hidden"name="_method"value="patch">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Name<input type="text" name="name" value="<%= @product[:name] %>">
+  description<input type="text" name="description" value="<%= @product[:description] %>">
+  Price<input type="text" name="price" value="<%= @product[:price] %>">
+  <button type="submit">Edit</button>
+</form>

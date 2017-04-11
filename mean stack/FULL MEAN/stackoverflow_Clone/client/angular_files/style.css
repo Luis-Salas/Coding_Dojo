@@ -1,0 +1,61 @@
+#wrapper{
+  width:100%
+}
+
+#mainTable{
+  margin-left:4em;
+  margin-right:4em;
+  font-size: 20px;
+}
+#header{
+  width:11%;
+  margin:auto;
+}
+#create{
+  width:60%;
+  margin: auto;
+}
+
+#wrapper img{
+  margin-top:.2em;
+  height:50px;
+}
+.center{
+}
+.cardQuest{
+  margin: auto;
+  width: 37%;
+  color: white;
+}
+#post{
+  margin: auto;
+  width: 40%;
+}
+.row .col.m5 {
+  width: 100%;
+}
+
+.row .col.s6 {
+  width: 100%;
+}
+
+#comment{
+  width: 50%;
+  margin: auto;
+  margin-top:20px;
+  border-bottom: solid black 1px;
+}
+#indexPage{
+  width:60%;
+  margin: auto;
+  padding-top: 17em;
+  color:white;
+}
+#indexWrapper{
+  width: 100%;
+  height: 80em;
+  background-image: url(https://avocaventures.com/wp-content/uploads/2014/11/lines-of-code.jpg);
+}
+textarea#icon_prefix2{
+  font-size:35px;
+}

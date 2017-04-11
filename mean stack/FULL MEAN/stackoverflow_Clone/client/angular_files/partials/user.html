@@ -1,0 +1,35 @@
+<div ng-controller="userController as UC" >
+<div id="wrapper" ng-controller="TopicController as TC" ng-init="TC.index()">
+<nav>
+  <div class="nav-wrapper grey darken-4">
+    <a href="#!" class="brand-logo"><img src="http://www.isc.hbs.edu/Style%20Library/hbs/images/home/icons/large-circles/platform-stack-icon.png" alt="">Stack Q&A</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/#!/dash"><i class="material-icons">dashboard</i></a></li>
+      <li><a href="/#!/user"><i class="material-icons">perm_identity</i></a></li>
+      <li><a href="/#!/"><i class="material-icons">settings_power</i></a></li>
+    </ul>
+  </div>
+</nav>
+<div class="center"><h2>Topics that you have posted</h2></div>
+<div id="mainTable">
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Topic</th>
+        <th>User name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="topic in TC.worknow | filter: UC.myUser.name">
+        <td>{{topic.category}}</td>
+        <td><a href="#!/topic/{{topic._id}}">{{topic.topic}}</a></td>
+        <td>{{topic._creator.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+</div>

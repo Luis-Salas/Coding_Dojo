@@ -1,8 +1,0 @@
-{
-    "dependencies": [
-        {
-            "path": "es5.js",
-            "if": "!extensions.contains('no-es5')"
-        }
-    ]
-}

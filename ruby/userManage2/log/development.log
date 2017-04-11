@@ -2595,3 +2595,25 @@ Processing by ProductController#index as HTML
   [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
   Rendered product/index.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 108ms (Views: 103.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-10 21:55:16 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductController#index as HTML
+  [1m[35mProduct Load (0.0ms)[0m  SELECT "products".* FROM "products"
+  Rendered product/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 921ms (Views: 896.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/product.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2017-04-10 21:55:30 -0500
+
+
+Started GET "/assets/product.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2017-04-10 21:55:30 -0500
+
+
+Started GET "/show/8" for ::1 at 2017-04-10 21:55:39 -0500
+Processing by ProductController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered product/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 138ms (Views: 120.4ms | ActiveRecord: 0.0ms)
